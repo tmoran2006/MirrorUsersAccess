@@ -21,7 +21,9 @@ $user = Read-Host "Enter user to mirror access of"
       "User '$($ADUser.SamAccountName)' exists."
 
       $TargetSecurityGroups = Get-ADPrincipalGroupMembership $user
-
+      
+      $username = Read-Host "What user to copy access to"
+      
       foreach($securityGroup in $TargetSecurityGroups){
             $sgDN = $securityGroup.distinguishedName
             $sgName = $securityGroup.name
